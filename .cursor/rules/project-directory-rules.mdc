@@ -1,0 +1,27 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+새로운 컴퍼넌트를 추가할때는 아래 디렉토리 룰을 따른다
+
+src/
+  components/    # 재사용 가능한 UI 컴포넌트 모음
+    commons/     # 인터랙티브 패턴 상관없이 공통으로 사용될 컴퍼넌트
+    pattrerns/   #인터액티브 패턴에 사용될 컴퍼넌트
+      typoraphy/ # 타이포그래피와 관련된 패턴
+      motion/    # 모션과 관련된 패턴
+      scroll/    # 스크롤과 관련된 패턴
+      pageTransition/ # 화면 전환과 관련된 패턴
+      color/     # 색과 그라데이션과 관련된패턴
+      visualHook # three.js, svg를 활용한 시각적 훅
+      customCursor #커스텀 커서와 관련된 패턴
+
+
+  
+    templates/     # 다수의 컴퍼넌트들이 합쳐진 템플릿 컴퍼넌트
+    sections/      # 페이지 내 주요 섹션에 해당하는 컴퍼넌트
+    hooks/         # 커스텀 React 훅(hook) 모음
+    utils/         # 유틸리티 함수 모음
+    styles/        # 전역 스타일 또는 테마 관련 파일
+    assets/        # 이미지, 폰트 등 정적 자원

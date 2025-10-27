@@ -1,0 +1,48 @@
+{
+  "name": "vibe-design-lab",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^7.0.2",
+    "@mui/material": "^7.0.2",
+    "@react-three/drei": "^10.0.7",
+    "@react-three/fiber": "^9.1.2",
+    "@studio-freight/lenis": "^1.0.42",
+    "d3": "^7.9.0",
+    "d3-interpolate": "^3.0.1",
+    "firebase": "^11.7.3",
+    "framer-motion": "^12.9.2",
+    "gradient-path": "^2.3.0",
+    "gsap": "^3.12.7",
+    "hamburger-react": "^2.5.2",
+    "mui-color-input": "^7.0.0",
+    "react": "^19.0.0",
+    "react-countup": "^6.5.3",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.5.3",
+    "react-syntax-highlighter": "^15.6.1",
+    "split-type": "^0.3.4",
+    "three": "^0.176.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.22.0",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.22.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^16.0.0",
+    "vite": "^6.3.1"
+  },
+  "packageManager": "yarn@4.2.1+sha256.15ce76682a8cd2090257b883cd69c637925b29573f9573e8403ec227d5ab6815"
+}

@@ -1,0 +1,143 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# ExamplePageTemplate 사용 가이드
+
+## 개요
+`ExamplePageTemplate`은 컴포넌트 예제 페이지를 쉽게 구성할 수 있도록 도와주는 템플릿 컴포넌트입니다. 기본 예제와 레시피 정보를 포함한 일관된 레이아웃을 제공합니다.
+
+## 기본 구조
+
+```jsx
+import React from "react";
+import ExamplePageTemplate from "../../../templates/ExamplePageTemplate";
+import YourComponent from "../../../components/patterns/your-category/YourComponent";
+import { recipesData } from "../../../data/recipesData";
+
+function YourComponentExamplePage() {
+  return (
+    <ExamplePageTemplate
+      title={recipesData.yourComponent.title}
+      description={recipesData.yourComponent.basicIdea}
+      recipe={recipesData.yourComponent}
+      basicExample={{
+        Component: YourComponent,
+        props: {
+          // recipesData.yourComponent.advancedLearning.propsList의 기본값을 참고하여 설정
+          prop1: "value1",
+          prop2: "value2",
+          // ...
+        },
+        name: "YourComponent"
+      }}
+    />
+  );
+}
+
+export default YourComponentExamplePage;
+```
+
+## 필수 Props
+
+1. `title`: 예제 제목
+   - `recipesData`에서 해당 컴포넌트의 title 값을 사용
+
+2. `description`: 예제 설명
+   - `recipesData`에서 해당 컴포넌트의 basicIdea 값을 사용
+
+3. `recipe`: 레시피 데이터
+   - `recipesData`에서 해당 컴포넌트의 전체 데이터를 전달
+
+4. `basicExample`: 기본 예제 설정
+   - `Component`: 실제 렌더링할 컴포넌트
+   - `props`: 컴포넌트에 전달할 props
+   - `name`: 컴포넌트 이름 (선택적)
+
+## Props 설정 가이드
+
+1. `recipesData`에서 해당 컴포넌트의 `advancedLearning.propsList`를 확인합니다.
+
+2. `propsList`의 각 항목에서 `default` 값을 참고하여 `basicExample.props`를 설정합니다.
+
+```jsx
+// recipesData.js의 예시
+{
+  advancedLearning: {
+    propsList: [
+      {
+        name: "text",
+        type: "string",
+        default: "Hello",
+        description: "표시할 텍스트"
+      },
+      {
+        name: "speed",
+        type: "number",
+        default: 100,
+        description: "애니메이션 속도"
+      }
+    ]
+  }
+}
+
+// ExamplePageTemplate 사용 예시
+basicExample={{
+  Component: YourComponent,
+  props: {
+    text: "Hello",  // default 값 사용
+    speed: 100      // default 값 사용
+  },
+  name: "YourComponent"
+}}
+```
+
+## 주의사항
+
+1. `recipesData`의 `propsList`에 정의된 props만 사용해야 합니다.
+
+2. 배열이나 객체 형태의 props는 문자열로 정의된 경우 적절한 형식으로 변환해야 합니다.
+   ```jsx
+   // 문자열로 정의된 배열
+   default: "['item1', 'item2']"
+   
+   // 실제 사용 시
+   props: {
+     items: ['item1', 'item2']
+   }
+   ```
+
+3. `ComponentPlayground`는 `basicExample`의 props가 변경될 때마다 컴포넌트를 재렌더링합니다.
+
+## 예시
+
+```jsx
+// TypingEffectExamplePage.jsx
+function TypingEffectExamplePage() {
+  return (
+    <ExamplePageTemplate
+      title={recipesData.typingEffect.title}
+      description={recipesData.typingEffect.basicIdea}
+      recipe={recipesData.typingEffect}
+      basicExample={{
+        Component: TypingEffect,
+        props: {
+          texts: [
+            "Vibe Design Labs",
+            "인터랙티브 웹을 위한",
+            "타이포그래피 패턴",
+          ],
+          variant: "h3",
+          typingSpeed: 20,
+          deleteSpeed: 20,
+          delayAfterDelete: 500,
+          delayAfterType: 1000,
+          cursorType: "line",
+        },
+        name: "TypingEffect",
+      }}
+    />
+  );
+}
+```

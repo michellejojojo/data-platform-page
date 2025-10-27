@@ -1,0 +1,31 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+## 1. Cursor Rules 설정
+
+## 프로젝트 특성
+- 우주관광 서비스를 위한 랜딩 페이지
+- 다크 테마 + 테크 기업 느낌의 미래적 디자인
+- 글래스모피즘/리퀴드 글래스 스타일로 배경과 블렌딩
+- 단순하고 여백을 과감하게 사용하는 레이아웃
+- 곡율이 있는 컨테이너 + 각진 버튼 스타일
+
+## 핵심 컴포넌트 활용
+- ParticleBackground: 전체 배경 인터랙션 처리
+- ScrambleText: 메인 타이틀 효과
+- TypingEffect: 서브 텍스트 애니메이션  
+- MUI Grid v7: size prop으로 반응형 레이아웃
+- 글래스모피즘: backdrop-filter: blur(60px), rgba 투명도
+
+## 색상 시스템
+- 배경색/파티클색 조합으로 섹션별 분위기 연출
+- #000011/#ADD8E6 (메인), #0A0A14/#C0C0C0 (루나)
+- #140A0A/#FF6B47 (마션), #0A0A0F/#9370DB (스텔라)
+- #000011/#FFFFFF (예약)
+
+## 데이터 구조 활용
+- [spacecraftData.js](mdc:src/data/spacecraftData.js) : 우주선 정보 (title, description, features, imagePosition)
+- [sectionsData.js](mdc:src/data/sectionsData.js) : 섹션별 컴포넌트와 배경 설정
+- 이미지: @assets/space/1.png, 2.png, 3.png'

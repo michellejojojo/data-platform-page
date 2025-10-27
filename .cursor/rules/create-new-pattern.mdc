@@ -1,0 +1,13 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+새로운 인터랙티브 컴퍼넌트를 추가할때
+아래를 자동 업데이트
+
+- [recipesData.js](mdc:src/data/recipesData.js)
+- src/examplePages의 각 해다 폴더에 예제 페이지 생성
+- src/pages에 해당되는 페이지에 CardUI 및 링크 추가
+- 이때 다른 예제페이지와 동일하게 [ExamplePageTemplate.jsx](mdc:src/templates/ExamplePageTemplate.jsx) 와 [recipesData.js](mdc:src/data/recipesData.js)의 해당 정보 사용
+- 마지막으로 [App.jsx](mdc:src/App.jsx)에 router 업데이트

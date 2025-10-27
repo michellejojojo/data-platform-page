@@ -1,0 +1,10 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+- 인터랙티브 패턴을 만들때 참조해야할 규칙: [recipesData.js](mdc:src/data/recipesData.js)
+- basicIdea은 쉬운 단어로 이 컴퍼넌트가 왜 필요하고 어떤 역할을 하는지 1문장으로 설명한다.
+- examples:에는 배열로 이 컴퍼넌트가 사용될 수 있는 예시 시나리오를 간단한 1,2 단어로 표시한다. (최대 3개)
+- detailedProcess안에는 최대한 기술적인 내용보다는 디자인 관점에서 설계, 구조적인 단어로 설명한다.
+- requiredKnowledge에서는 어떤 조건에서 무엇을, 어떻게 움직일때 사용되는 핵심 기술들을 중심으로 언급한다. 컴퍼넌트명을 언급할 필요는 없다.

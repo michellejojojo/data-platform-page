@@ -1,0 +1,14 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# 프로젝트 개요 및 프로젝트 구성
+
+- 이 프로젝트의 이름은 'Vibe Design Labs'입니다.
+- [project-directory-rules.mdc](mdc:.cursor/rules/project-directory-rules.mdc) 에 명시된 7가이 인터랙티브 패턴의 예제를 바로 확인할 수 있는 UI 큐레이션 사이트입니다.
+- 네비게이션 구성은 랜딩 페에지 > 패턴 페이지 > 예시 페이지로 구성됩니다.
+- 따라서 랜딩 페이지에 상단의 Hero섹션과 함께 아래에는 7가지 패턴을 대표하는 CardUI를 보여줍니다.
+- 렌딩페이지에서 진입한 1depth 라우터는 각 인터랙티브 패턴의 예시 모아둔 '패턴 페'이'지입니다. 역시 각 패턴에 해당하는 예시들을 Card UI로 보여줍니다.
+- 마지막 '예시 페이지'들은 [project-directory-rules.mdc](mdc:.cursor/rules/project-directory-rules.mdc) 의 patterns안에 포함된 컴퍼넌트들의 활용 방식을 보여줍니다.
+- 한개 '예시 페이지'에 여러개의 예시들이 담길 수 있습니다.

@@ -1,0 +1,8 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+- recipe의 detailedProcess는 직접적인 개발 용어를 피하고 이와 매칭되는 일반, 디자인 용어를 사용해서 디자이너도 이해하기 쉽게 작성한다.
+- expectedPrompt에는 만들려는 컴퍼넌트의 목적, 재사용하 컴퍼넌트, 각 Props의 간단한 역할을 개조식으로 작성. 그리고 prop표기할때 끝에 prop을 제거
+- 프롬프트가 너무 길어지지 않게 최대한 간단 명료한 표현 사용.
