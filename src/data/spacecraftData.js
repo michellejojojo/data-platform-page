@@ -1,7 +1,7 @@
 // 우주선 이미지 import
-import shuttleImage1 from '@/assets/space/1.png';
-import shuttleImage2 from '@/assets/space/2.png';
-import shuttleImage3 from '@/assets/space/3.png';
+import img1 from "../assets/space/1.png";
+import img2 from "../assets/space/2.png";
+import img3 from "../assets/space/3.png";
 
 /**
  * 우주선 데이터
@@ -15,7 +15,7 @@ export const spacecraftData = [
       { text: 'Adaptive Embedding Architecture' },
       { text: 'Global Behavior Model' },
     ],
-    imageUrl: shuttleImage1,
+    imageUrl: img1,
     imagePlaceholder: "[Lunar Voyager Image]",
     imagePosition: 'right',
     cardBackgroundColor: 'rgba(10, 10, 20, 0.3)',
@@ -28,7 +28,7 @@ export const spacecraftData = [
       { text: '0.05c' },
       { text: 'Mars' },
     ],
-    imageUrl: shuttleImage2,
+    imageUrl: img2,
     imagePlaceholder: "[Martian Pioneer Image]",
     imagePosition: 'left',
     cardBackgroundColor: 'rgba(20, 10, 10, 0.3)',
@@ -41,7 +41,7 @@ export const spacecraftData = [
       { text: '0.1c+' },
       { text: 'Deep Space' },
     ],
-    imageUrl: shuttleImage3,
+    imageUrl: img3,
     imagePlaceholder: "[Stellar Explorer Image]",
     imagePosition: 'right',
     cardBackgroundColor: 'rgba(10, 10, 15, 0.3)',
