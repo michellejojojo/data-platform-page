@@ -40,7 +40,7 @@ function NavigationHeader({ onMenuClick, scrollState }) {
     { label: "Explore", sectionId: "hero" },
     { label: "LEAD Platform", sectionId: "lunar-voyager" },
     { label: "CID", sectionId: "martian-pioneer" },
-    { label: "Stellar", sectionId: "stellar-explorer" },
+    { label: "DiVE", sectionId: "stellar-explorer" },
     { label: "Booking", sectionId: "reservation" },
   ];
 
