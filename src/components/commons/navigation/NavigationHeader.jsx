@@ -12,9 +12,12 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
-  Divider
+  Divider,
+  Menu,
+  MenuItem
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ScrambleText from "../../patterns/typoraphy/ScrambleText";
 
 /**
@@ -34,14 +37,23 @@ function NavigationHeader({ onMenuClick, scrollState }) {
   
   // Drawer 상태 관리
   const [drawerOpen, setDrawerOpen] = useState(false);
+  
+  // Solutions 드롭다운 메뉴 상태 관리
+  const [solutionsAnchorEl, setSolutionsAnchorEl] = useState(null);
+  const solutionsMenuOpen = Boolean(solutionsAnchorEl);
 
   // 메뉴 항목 데이터
   const menuItems = [
     { label: "Explore", sectionId: "hero" },
     { label: "LEAD Platform", sectionId: "lunar-voyager" },
-    { label: "CID", sectionId: "martian-pioneer" },
-    { label: "DiVE", sectionId: "stellar-explorer" },
     { label: "Booking", sectionId: "reservation" },
+  ];
+
+  // Solutions 드롭다운 메뉴 항목
+  const solutionsMenuItems = [
+    { label: "CID", sectionId: "martian-pioneer" },
+    { label: "에이전트 DiVE", sectionId: "stellar-explorer" },
+    { label: "상담 DiVE", sectionId: "stellar-explorer" },
   ];
 
   // 메뉴 클릭 핸들러
@@ -68,6 +80,22 @@ function NavigationHeader({ onMenuClick, scrollState }) {
       return;
     }
     setDrawerOpen(open);
+  };
+
+  // Solutions 드롭다운 열기
+  const handleSolutionsClick = (event) => {
+    setSolutionsAnchorEl(event.currentTarget);
+  };
+
+  // Solutions 드롭다운 닫기
+  const handleSolutionsClose = () => {
+    setSolutionsAnchorEl(null);
+  };
+
+  // Solutions 메뉴 항목 클릭
+  const handleSolutionsMenuItemClick = (sectionId) => {
+    handleMenuItemClick(sectionId);
+    handleSolutionsClose();
   };
 
   return (
@@ -139,7 +167,7 @@ function NavigationHeader({ onMenuClick, scrollState }) {
               }}
             >
               <ScrambleText
-                text="REACH THE STARS"
+                text="LEAD"
                 variant="body1"
                 color="white"
                 startDelay={0}
@@ -178,43 +206,201 @@ function NavigationHeader({ onMenuClick, scrollState }) {
                 maxWidth: "100%",
               }}
             >
-              {menuItems.map((item) => (
-                <Button
-                  key={item.sectionId}
-                  onClick={() => handleMenuItemClick(item.sectionId)}
-                  sx={{
-                    color: "rgba(255,255,255,0.9)",
-                    fontSize: { xs: "0.8rem", sm: "0.85rem", md: "0.9rem" },
-                    fontWeight: 500,
-                    textTransform: "none",
-                    letterSpacing: "0.05em",
-                    px: { xs: 1, sm: 1.5, md: 2 },
-                    py: { xs: 0.5, sm: 0.75, md: 1 },
+              {/* Explore */}
+              <Button
+                onClick={() => handleMenuItemClick("hero")}
+                sx={{
+                  color: "rgba(255,255,255,0.9)",
+                  fontSize: { xs: "0.8rem", sm: "0.85rem", md: "0.9rem" },
+                  fontWeight: 500,
+                  textTransform: "none",
+                  letterSpacing: "0.05em",
+                  px: { xs: 1, sm: 1.5, md: 2 },
+                  py: { xs: 0.5, sm: 0.75, md: 1 },
+                  borderRadius: 2,
+                  backgroundColor: "transparent",
+                  border: "1px solid transparent",
+                  transition: "all 0.3s ease",
+                  textAlign: "center",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  minWidth: { xs: "auto", md: "80px" },
+                  flexShrink: 0,
+                  whiteSpace: "nowrap",
+                  "&:hover": {
+                    backgroundColor: "rgba(255,255,255,0.1)",
+                    border: "1px solid rgba(255,255,255,0.2)",
+                    color: "white",
+                    transform: "translateY(-1px)",
+                  },
+                  "&:active": {
+                    transform: "translateY(0)",
+                  },
+                }}
+              >
+                Explore
+              </Button>
+              
+              {/* LEAD Platform */}
+              <Button
+                onClick={() => handleMenuItemClick("lunar-voyager")}
+                sx={{
+                  color: "rgba(255,255,255,0.9)",
+                  fontSize: { xs: "0.8rem", sm: "0.85rem", md: "0.9rem" },
+                  fontWeight: 500,
+                  textTransform: "none",
+                  letterSpacing: "0.05em",
+                  px: { xs: 1, sm: 1.5, md: 2 },
+                  py: { xs: 0.5, sm: 0.75, md: 1 },
+                  borderRadius: 2,
+                  backgroundColor: "transparent",
+                  border: "1px solid transparent",
+                  transition: "all 0.3s ease",
+                  textAlign: "center",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  minWidth: { xs: "auto", md: "80px" },
+                  flexShrink: 0,
+                  whiteSpace: "nowrap",
+                  "&:hover": {
+                    backgroundColor: "rgba(255,255,255,0.1)",
+                    border: "1px solid rgba(255,255,255,0.2)",
+                    color: "white",
+                    transform: "translateY(-1px)",
+                  },
+                  "&:active": {
+                    transform: "translateY(0)",
+                  },
+                }}
+              >
+                LEAD Platform
+              </Button>
+              
+              {/* Solutions 드롭다운 메뉴 */}
+              <Button
+                onClick={handleSolutionsClick}
+                sx={{
+                  color: "rgba(255,255,255,0.9)",
+                  fontSize: { xs: "0.8rem", sm: "0.85rem", md: "0.9rem" },
+                  fontWeight: 500,
+                  textTransform: "none",
+                  letterSpacing: "0.05em",
+                  px: { xs: 1, sm: 1.5, md: 2 },
+                  py: { xs: 0.5, sm: 0.75, md: 1 },
+                  borderRadius: 2,
+                  backgroundColor: solutionsMenuOpen ? "rgba(255,255,255,0.1)" : "transparent",
+                  border: "1px solid transparent",
+                  transition: "all 0.3s ease",
+                  textAlign: "center",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  minWidth: { xs: "auto", md: "100px" },
+                  flexShrink: 0,
+                  whiteSpace: "nowrap",
+                  "&:hover": {
+                    backgroundColor: "rgba(255,255,255,0.1)",
+                    border: "1px solid rgba(255,255,255,0.2)",
+                    color: "white",
+                    transform: "translateY(-1px)",
+                  },
+                  "&:active": {
+                    transform: "translateY(0)",
+                  },
+                }}
+              >
+                Solutions
+                <ArrowDropDownIcon 
+                  sx={{ 
+                    ml: 0.5,
+                    fontSize: "1.2rem",
+                    transform: solutionsMenuOpen ? "rotate(180deg)" : "rotate(0deg)",
+                    transition: "transform 0.3s ease",
+                  }} 
+                />
+              </Button>
+              
+              {/* Booking */}
+              <Button
+                onClick={() => handleMenuItemClick("reservation")}
+                sx={{
+                  color: "rgba(255,255,255,0.9)",
+                  fontSize: { xs: "0.8rem", sm: "0.85rem", md: "0.9rem" },
+                  fontWeight: 500,
+                  textTransform: "none",
+                  letterSpacing: "0.05em",
+                  px: { xs: 1, sm: 1.5, md: 2 },
+                  py: { xs: 0.5, sm: 0.75, md: 1 },
+                  borderRadius: 2,
+                  backgroundColor: "transparent",
+                  border: "1px solid transparent",
+                  transition: "all 0.3s ease",
+                  textAlign: "center",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  minWidth: { xs: "auto", md: "80px" },
+                  flexShrink: 0,
+                  whiteSpace: "nowrap",
+                  "&:hover": {
+                    backgroundColor: "rgba(255,255,255,0.1)",
+                    border: "1px solid rgba(255,255,255,0.2)",
+                    color: "white",
+                    transform: "translateY(-1px)",
+                  },
+                  "&:active": {
+                    transform: "translateY(0)",
+                  },
+                }}
+              >
+                Booking
+              </Button>
+              
+              <Menu
+                anchorEl={solutionsAnchorEl}
+                open={solutionsMenuOpen}
+                onClose={handleSolutionsClose}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+                PaperProps={{
+                  sx: {
+                    backgroundColor: "rgba(0, 0, 17, 0.95)",
+                    backdropFilter: "blur(20px)",
+                    border: "1px solid rgba(255,255,255,0.1)",
                     borderRadius: 2,
-                    backgroundColor: "transparent",
-                    border: "1px solid transparent",
-                    transition: "all 0.3s ease",
-                    textAlign: "center",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    minWidth: { xs: "auto", md: "80px" },
-                    flexShrink: 0,
-                    whiteSpace: "nowrap",
-                    "&:hover": {
-                      backgroundColor: "rgba(255,255,255,0.1)",
-                      border: "1px solid rgba(255,255,255,0.2)",
-                      color: "white",
-                      transform: "translateY(-1px)",
-                    },
-                    "&:active": {
-                      transform: "translateY(0)",
-                    },
-                  }}
-                >
-                  {item.label}
-                </Button>
-              ))}
+                    mt: 1,
+                    minWidth: 180,
+                  },
+                }}
+              >
+                {solutionsMenuItems.map((item) => (
+                  <MenuItem
+                    key={item.label}
+                    onClick={() => handleSolutionsMenuItemClick(item.sectionId)}
+                    sx={{
+                      color: "rgba(255,255,255,0.9)",
+                      fontSize: "0.9rem",
+                      fontWeight: 500,
+                      letterSpacing: "0.05em",
+                      py: 1.5,
+                      px: 2,
+                      "&:hover": {
+                        backgroundColor: "rgba(255,255,255,0.1)",
+                      },
+                    }}
+                  >
+                    {item.label}
+                  </MenuItem>
+                ))}
+              </Menu>
             </Stack>
 
             {/* 모바일 메뉴(햄버거) 버튼 */}
@@ -269,7 +455,7 @@ function NavigationHeader({ onMenuClick, scrollState }) {
           {/* Drawer 헤더 */}
           <Box sx={{ px: 3, pb: 2 }}>
             <ScrambleText
-              text="REACH THE STARS"
+              text="LEAD"
               variant="h6"
               color="white"
               startDelay={0}
@@ -288,32 +474,162 @@ function NavigationHeader({ onMenuClick, scrollState }) {
           
           {/* 메뉴 리스트 */}
           <List>
-            {menuItems.map((item) => (
-              <ListItem key={item.sectionId} disablePadding>
-                <ListItemButton
-                  onClick={() => handleMenuItemClick(item.sectionId)}
+            {/* Explore */}
+            <ListItem disablePadding>
+              <ListItemButton
+                onClick={() => handleMenuItemClick("hero")}
+                sx={{
+                  px: 3,
+                  py: 2,
+                  "&:hover": {
+                    backgroundColor: "rgba(255,255,255,0.1)",
+                  },
+                }}
+              >
+                <ListItemText
+                  primary="Explore"
                   sx={{
-                    px: 3,
-                    py: 2,
+                    "& .MuiListItemText-primary": {
+                      color: "rgba(255,255,255,0.9)",
+                      fontSize: "1rem",
+                      fontWeight: 500,
+                      letterSpacing: "0.05em",
+                    },
+                  }}
+                />
+              </ListItemButton>
+            </ListItem>
+            
+            {/* LEAD Platform */}
+            <ListItem disablePadding>
+              <ListItemButton
+                onClick={() => handleMenuItemClick("lunar-voyager")}
+                sx={{
+                  px: 3,
+                  py: 2,
+                  "&:hover": {
+                    backgroundColor: "rgba(255,255,255,0.1)",
+                  },
+                }}
+              >
+                <ListItemText
+                  primary="LEAD Platform"
+                  sx={{
+                    "& .MuiListItemText-primary": {
+                      color: "rgba(255,255,255,0.9)",
+                      fontSize: "1rem",
+                      fontWeight: 500,
+                      letterSpacing: "0.05em",
+                    },
+                  }}
+                />
+              </ListItemButton>
+            </ListItem>
+            
+            {/* Solutions 메뉴 (모바일) */}
+            <ListItem disablePadding>
+              <ListItemButton
+                onClick={(e) => {
+                  setSolutionsAnchorEl(e.currentTarget);
+                }}
+                sx={{
+                  px: 3,
+                  py: 2,
+                  "&:hover": {
+                    backgroundColor: "rgba(255,255,255,0.1)",
+                  },
+                }}
+              >
+                <ListItemText
+                  primary="Solutions"
+                  sx={{
+                    "& .MuiListItemText-primary": {
+                      color: "rgba(255,255,255,0.9)",
+                      fontSize: "1rem",
+                      fontWeight: 500,
+                      letterSpacing: "0.05em",
+                    },
+                  }}
+                />
+                <ArrowDropDownIcon 
+                  sx={{ 
+                    color: "rgba(255,255,255,0.9)",
+                    transform: solutionsMenuOpen ? "rotate(180deg)" : "rotate(0deg)",
+                    transition: "transform 0.3s ease",
+                  }} 
+                />
+              </ListItemButton>
+            </ListItem>
+            
+            {/* Booking */}
+            <ListItem disablePadding>
+              <ListItemButton
+                onClick={() => handleMenuItemClick("reservation")}
+                sx={{
+                  px: 3,
+                  py: 2,
+                  "&:hover": {
+                    backgroundColor: "rgba(255,255,255,0.1)",
+                  },
+                }}
+              >
+                <ListItemText
+                  primary="Booking"
+                  sx={{
+                    "& .MuiListItemText-primary": {
+                      color: "rgba(255,255,255,0.9)",
+                      fontSize: "1rem",
+                      fontWeight: 500,
+                      letterSpacing: "0.05em",
+                    },
+                  }}
+                />
+              </ListItemButton>
+            </ListItem>
+            
+            <Menu
+              anchorEl={solutionsAnchorEl}
+              open={solutionsMenuOpen && drawerOpen}
+              onClose={handleSolutionsClose}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "left",
+              }}
+              PaperProps={{
+                sx: {
+                  backgroundColor: "rgba(0, 0, 17, 0.95)",
+                  backdropFilter: "blur(20px)",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  borderRadius: 2,
+                  ml: 1,
+                  minWidth: 180,
+                },
+              }}
+            >
+              {solutionsMenuItems.map((item) => (
+                <MenuItem
+                  key={item.label}
+                  onClick={() => handleSolutionsMenuItemClick(item.sectionId)}
+                  sx={{
+                    color: "rgba(255,255,255,0.9)",
+                    fontSize: "0.9rem",
+                    fontWeight: 500,
+                    letterSpacing: "0.05em",
+                    py: 1.5,
+                    px: 2,
                     "&:hover": {
                       backgroundColor: "rgba(255,255,255,0.1)",
                     },
                   }}
                 >
-                  <ListItemText
-                    primary={item.label}
-                    sx={{
-                      "& .MuiListItemText-primary": {
-                        color: "rgba(255,255,255,0.9)",
-                        fontSize: "1rem",
-                        fontWeight: 500,
-                        letterSpacing: "0.05em",
-                      },
-                    }}
-                  />
-                </ListItemButton>
-              </ListItem>
-            ))}
+                  {item.label}
+                </MenuItem>
+              ))}
+            </Menu>
           </List>
         </Box>
       </Drawer>

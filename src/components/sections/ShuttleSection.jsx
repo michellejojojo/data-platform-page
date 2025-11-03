@@ -32,6 +32,7 @@ function ShuttleSection({ spacecraftData }) {
     imageUrl,
     imagePosition = 'right',
     cardBackgroundColor = 'rgba(10, 10, 20, 0.3)',
+    descriptionUrl,
   } = spacecraftData;
 
   const isImageLeft = imagePosition === 'left';
@@ -118,7 +119,13 @@ function ShuttleSection({ spacecraftData }) {
 
                 {/* 우주선 설명 */}
                 <Typography
+                  component={descriptionUrl ? 'div' : 'div'}
                   variant="body1"
+                  onClick={() => {
+                    if (descriptionUrl) {
+                      window.open(descriptionUrl, '_blank', 'noopener,noreferrer');
+                    }
+                  }}
                   sx={{
                     color: 'rgba(255,255,255,0.8)',
                     fontSize: { xs: '1rem', sm: '1.1rem', md: '1.2rem' },
@@ -126,6 +133,15 @@ function ShuttleSection({ spacecraftData }) {
                     mb: 4,
                     letterSpacing: '0.02em',
                     whiteSpace: 'pre-line',
+                    cursor: descriptionUrl ? 'pointer' : 'default',
+                    transition: 'all 0.3s ease',
+                    ...(descriptionUrl && {
+                      '&:hover': {
+                        color: 'rgba(255,255,255,1)',
+                        textShadow: '0 0 10px rgba(255,255,255,0.5)',
+                        transform: 'translateY(-2px)',
+                      },
+                    }),
                   }}
                 >
                   {description}

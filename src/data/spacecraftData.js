@@ -32,6 +32,7 @@ export const spacecraftData = [
     imagePlaceholder: "[Martian Pioneer Image]",
     imagePosition: 'left',
     cardBackgroundColor: 'rgba(20, 10, 10, 0.3)',
+    descriptionUrl: 'https://bedrock-data-knwoledgebase.s3.us-east-1.amazonaws.com/cid.html',
   },
   {
     title: "DiVE Agent",

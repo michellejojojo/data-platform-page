@@ -6,11 +6,7 @@ import {
   Typography, 
   Card, 
   CardContent, 
-  TextField, 
-  FormControl, 
-  InputLabel, 
-  Select, 
-  MenuItem 
+  TextField
 } from '@mui/material';
 import ScrambleText from '../patterns/typoraphy/ScrambleText';
 import GradientButton from '../patterns/motion/GradientButton';
@@ -32,9 +28,7 @@ function ReservationSection({ sections, onSectionsUpdate }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    spacecraft: '',
     date: '',
-    passengers: 1,
   });
 
   // CTA hover 상태 관리 (내부 UI 반전용)
@@ -152,36 +146,6 @@ function ReservationSection({ sections, onSectionsUpdate }) {
     },
   });
 
-  // Select 필드 스타일
-  const getSelectStyles = () => ({
-    backgroundColor: isHovered 
-      ? 'rgba(26,27,35,0.05)' 
-      : 'rgba(255,255,255,0.05)',
-    borderRadius: 2,
-    color: isHovered ? '#1A1B23' : 'white',
-    transition: 'all 0.3s ease',
-    '& .MuiOutlinedInput-notchedOutline': {
-      borderColor: isHovered 
-        ? 'rgba(26,27,35,0.4)' 
-        : 'rgba(255,255,255,0.3)',
-    },
-    '&:hover .MuiOutlinedInput-notchedOutline': {
-      borderColor: isHovered 
-        ? 'rgba(26,27,35,0.6)' 
-        : 'rgba(255,255,255,0.5)',
-    },
-    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-      borderColor: isHovered 
-        ? 'rgba(26,27,35,0.8)' 
-        : 'rgba(255,255,255,0.8)',
-    },
-    '& .MuiSvgIcon-root': {
-      color: isHovered 
-        ? 'rgba(26,27,35,0.8)' 
-        : 'rgba(255,255,255,0.7)',
-      transition: 'all 0.3s ease',
-    },
-  });
 
   return (
     <Stack
@@ -298,47 +262,6 @@ function ReservationSection({ sections, onSectionsUpdate }) {
                           type="email"
                           value={formData.email}
                           onChange={handleInputChange}
-                          required
-                          sx={getFieldStyles()}
-                        />
-                      </Grid>
-
-                      {/* 우주선 선택 */}
-                      <Grid size={{ xs: 12, sm: 6 }}>
-                        <FormControl fullWidth required>
-                          <InputLabel 
-                            sx={{ 
-                              color: isHovered 
-                                ? 'rgba(26,27,35,0.8)' 
-                                : 'rgba(255,255,255,0.7)',
-                              transition: 'all 0.3s ease',
-                            }}
-                          >
-                            Spacecraft
-                          </InputLabel>
-                          <Select
-                            name="spacecraft"
-                            value={formData.spacecraft}
-                            onChange={handleInputChange}
-                            sx={getSelectStyles()}
-                          >
-                            <MenuItem value="lunar-voyager">Lunar Voyager</MenuItem>
-                            <MenuItem value="martian-pioneer">Martian Pioneer</MenuItem>
-                            <MenuItem value="stellar-explorer">Stellar Explorer</MenuItem>
-                          </Select>
-                        </FormControl>
-                      </Grid>
-
-                      {/* 승객 수 */}
-                      <Grid size={{ xs: 12, sm: 6 }}>
-                        <TextField
-                          fullWidth
-                          name="passengers"
-                          label="Number of Passengers"
-                          type="number"
-                          value={formData.passengers}
-                          onChange={handleInputChange}
-                          inputProps={{ min: 1, max: 12 }}
                           required
                           sx={getFieldStyles()}
                         />
